@@ -1,0 +1,79 @@
+@import 'animate.css/animate.min.css';
+
+
+// Default mode: the block's animation starts paused, and src/view.js adds
+// .animate__inView (via IntersectionObserver) the first time it enters the
+// viewport — plays once, whether the block starts visible on load or is
+// scrolled into view later.
+.animate__animated {
+	--animate-duration: .6s;
+	--animate-distance: 3.125rem;
+	animation-play-state: paused;
+}
+
+.animate__animated.animate__inView {
+	animation-play-state: running;
+}
+
+.animate__animated.animate__scrollDriven {}
+
+// Animate.css's directional fades move the element by 100% of its own
+// size, which is huge on large blocks. Redefine the same keyframes (same
+// name, so this wins over the library's own) with a fixed distance instead.
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translate3d(0, var(--animate-distance), 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes fadeInDown {
+	from {
+		opacity: 0;
+		transform: translate3d(0, calc(-1 * var(--animate-distance)), 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes fadeInLeft {
+	from {
+		opacity: 0;
+		transform: translate3d(calc(-1 * var(--animate-distance)), 0, 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes fadeInRight {
+	from {
+		opacity: 0;
+		transform: translate3d(var(--animate-distance), 0, 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+// Manual per-block delay, set from the toolbar. When present, src/view.js
+// skips the automatic stagger delay for that block and this fires instead.
+$jbn-delays: 200, 400, 600, 800, 1000, 1500, 2000, 2500, 3000;
+
+@each $delay in $jbn-delays {
+	.animate__animated.animate__delay-#{ $delay } {
+		animation-delay: #{ $delay }ms;
+	}
+}
