@@ -2,23 +2,16 @@ import { __ } from '@wordpress/i18n';
 import { MenuGroup, MenuItem, ToolbarDropdownMenu } from '@wordpress/components';
 import { video } from '@wordpress/icons';
 
-import { ListAnimate, ListAnimateImages, animationsRevealAllowed, flatAnimateAll } from './const';
+import { ListAnimate, ListAnimateImages, flatAnimateAll } from './const';
 import { getCurrentFromClassName, updateCurrentClass } from './utils';
 import { DropdownButtons } from './DropdownButtons';
 
-export const ControlAnimate = ( { attributes: { className }, setAttributes, nameBlock, onOpenAdvance } ) => {
-	const getCurrentAnimationList = ( name ) => {
-		if ( animationsRevealAllowed.includes( name ) ) {
-			return [ ...ListAnimate, ...ListAnimateImages ];
-		}
-		return [ ...ListAnimate ];
-	};
+const animationList = [ ...ListAnimate, ...ListAnimateImages ];
 
-	const animationList = getCurrentAnimationList( nameBlock );
-
-	// Detected against the full catalog, not just the curated list rendered
-	// below, so an "exotic" animation picked from the Advance modal is still
-	// correctly replaced (not left behind) when switching from the toolbar.
+export const ControlAnimate = ( { attributes: { className }, setAttributes, onOpenAdvance } ) => {
+	// Detected against the full catalog (which also includes the Reveal
+	// group), so an "exotic" animation picked from the Advance modal is
+	// still correctly replaced when switching from the toolbar.
 	const currentAnimation = getCurrentFromClassName( className, flatAnimateAll );
 
 	const handleClassNameChange = ( selectedAnimation, onClose ) => {

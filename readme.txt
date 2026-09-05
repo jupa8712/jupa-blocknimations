@@ -1,18 +1,18 @@
 === Jupa - Blocknimations ===
 Contributors: jupa8
 Tags: gutenberg, block, animation, scroll, animate.css
-Requires at least: 6.7
+Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Add scroll-driven CSS animations to any block, powered by Animate.css.
+Animate any Gutenberg block as it enters the viewport, powered by Animate.css.
 
 == Description ==
 
-Jupa Blocknimations lets you animate any Gutenberg block as it enters the viewport while scrolling, using native CSS scroll-driven animations and the Animate.css library, with no JavaScript animation runtime required.
+Jupa Blocknimations adds animation controls to existing Gutenberg blocks. By default, each block plays its animation once the first time it scrolls into view. An optional scroll-driven mode ties the animation directly to scroll position instead.
 
 == Installation ==
 
@@ -21,10 +21,10 @@ Jupa Blocknimations lets you animate any Gutenberg block as it enters the viewpo
 
 == Changelog ==
 
-= 1.0.0 =
-* Initial release.
+= 0.1.0 =
+* Initial development release.
 
 == Upgrade Notice ==
 
-= 1.0.0 =
-Initial release.
+= 0.1.0 =
+Initial development release.

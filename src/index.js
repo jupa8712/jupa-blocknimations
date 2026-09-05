@@ -27,7 +27,6 @@ const withAnimate = ( BlockEdit ) => {
 						<ControlAnimate
 							attributes={ attributes }
 							setAttributes={ setAttributes }
-							nameBlock={ name }
 							onOpenAdvance={ () => setIsAdvanceOpen( true ) }
 						/>
 						<ControlDelay attributes={ attributes } setAttributes={ setAttributes } />

@@ -82,8 +82,9 @@ export const ListAnimationType = [
 ];
 
 // Full Animate.css catalog (97 animations), grouped the same way the
-// library's own docs group them. Shown in the "Advance" modal; the toolbar
-// keeps only the curated ListAnimate subset above.
+// library's own docs group them, plus our own custom "Reveal" group. Shown
+// in the "Advance" modal; the toolbar keeps only the curated ListAnimate /
+// ListAnimateImages subsets above.
 export const ListAnimateAll = [
 	{
 		label: __('Attention seekers', 'jupa-blocknimations'),
@@ -201,6 +202,10 @@ export const ListAnimateAll = [
 		label: __('Sliding exits', 'jupa-blocknimations'),
 		options: ['slideOutDown', 'slideOutLeft', 'slideOutRight', 'slideOutUp'],
 	},
+	{
+		label: __('Reveal', 'jupa-blocknimations'),
+		options: ['revealUp', 'revealRight', 'revealDown', 'revealLeft'],
+	},
 ].map(({ label, options }) => ({
 	label,
 	options: options.map((name) => ({ title: name, value: `animate__${name}` })),
@@ -237,21 +242,19 @@ export const allowedBlocks = [
 
 export const ListAnimateImages = [
 	{
-		title: __('Reveal Up', 'jupa-blocknimations'),
+		title: 'revealUp',
 		value: 'animate__revealUp',
 	},
 	{
-		title: __('Reveal Right', 'jupa-blocknimations'),
+		title: 'revealRight',
 		value: 'animate__revealRight',
 	},
 	{
-		title: __('Reveal Down', 'jupa-blocknimations'),
+		title: 'revealDown',
 		value: 'animate__revealDown',
 	},
 	{
-		title: __('Reveal Left', 'jupa-blocknimations'),
+		title: 'revealLeft',
 		value: 'animate__revealLeft',
 	},
 ];
-
-export const animationsRevealAllowed = ['core/image', 'core/separator'];

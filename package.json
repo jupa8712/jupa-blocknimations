@@ -1,7 +1,7 @@
 {
 	"name": "jupa-blocknimations",
 	"version": "0.1.0",
-	"description": "Add scroll-driven CSS animations to any block, powered by Animate.css.",
+	"description": "Animate any Gutenberg block as it enters the viewport, powered by Animate.css.",
 	"author": "Jupa",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
