@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Jupa - Blocknimations
- * Description:       Animate any Gutenberg block as it enters the viewport, powered by Animate.css.
+ * Description:       Lightweight scroll animations for any block. No animation JS library — powered by Animate.css, fully customizable via CSS.
  * Version:           0.1.0
  * Requires at least: 6.8
  * Requires PHP:      7.4

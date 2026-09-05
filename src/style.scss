@@ -15,7 +15,21 @@
 	animation-play-state: running;
 }
 
-.animate__animated.animate__scrollDriven {}
+// Scroll-driven mode ("Type: Scroll driven" in the Advance modal): the
+// animation ties directly to scroll position instead of playing once.
+// src/view.js skips these entirely when this is supported, so this rule
+// and the IntersectionObserver never fight over the same element. It's
+// gated behind @supports so unsupported browsers fall through to the
+// paused default above — src/view.js then treats the block as "on enter"
+// instead, so it still plays rather than staying invisible.
+@supports (animation-timeline: view()) {
+	.animate__animated.animate__scrollDriven {
+		animation-play-state: running;
+		animation-duration: auto;
+		animation-timeline: view();
+		animation-range: cover 0% cover 50%;
+	}
+}
 
 // Animate.css's directional fades move the element by 100% of its own
 // size, which is huge on large blocks. Redefine the same keyframes (same

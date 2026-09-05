@@ -21,7 +21,11 @@ export const ControlDelay = ( { attributes: { className }, setAttributes } ) => 
 	};
 
 	return (
-		<ToolbarDropdownMenu icon={ backup } label={ __( 'Select delay', 'jupa-blocknimations' ) }>
+		<ToolbarDropdownMenu
+			icon={ backup }
+			label={ __( 'Select delay', 'jupa-blocknimations' ) }
+			toggleProps={ { isPressed: !! currentDelay } }
+		>
 			{ ( { onClose } ) => (
 				<MenuGroup>
 					<DropdownButtons

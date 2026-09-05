@@ -7,8 +7,10 @@ import { ToolbarGroup } from '@wordpress/components';
 
 import { ControlAnimate } from './js/ControlAnimate';
 import { ControlDelay } from './js/ControlDelay';
+import { ControlType } from './js/ControlType';
 import { ControlAdvance } from './js/ControlAdvance';
-import { allowedBlocks } from './js/const';
+import { allowedBlocks, ListAnimationType } from './js/const';
+import { getCurrentFromClassName } from './js/utils';
 
 const withAnimate = ( BlockEdit ) => {
 	return ( props ) => {
@@ -18,6 +20,11 @@ const withAnimate = ( BlockEdit ) => {
 		if ( ! allowedBlocks.includes( name ) ) {
 			return <BlockEdit { ...props } />;
 		}
+
+		// Delay is time-based; it has no meaningful effect once the
+		// animation is driven by scroll position instead of a duration.
+		const isScrollDriven =
+			getCurrentFromClassName( attributes.className, ListAnimationType ) === 'animate__scrollDriven';
 
 		return (
 			<>
@@ -29,16 +36,18 @@ const withAnimate = ( BlockEdit ) => {
 							setAttributes={ setAttributes }
 							onOpenAdvance={ () => setIsAdvanceOpen( true ) }
 						/>
-						<ControlDelay attributes={ attributes } setAttributes={ setAttributes } />
-						<ControlAdvance
-							attributes={ attributes }
-							setAttributes={ setAttributes }
-							isOpen={ isAdvanceOpen }
-							onOpen={ () => setIsAdvanceOpen( true ) }
-							onClose={ () => setIsAdvanceOpen( false ) }
-						/>
+						{ ! isScrollDriven && (
+							<ControlDelay attributes={ attributes } setAttributes={ setAttributes } />
+						) }
+						<ControlType attributes={ attributes } setAttributes={ setAttributes } />
 					</ToolbarGroup>
 				</BlockControls>
+				<ControlAdvance
+					attributes={ attributes }
+					setAttributes={ setAttributes }
+					isOpen={ isAdvanceOpen }
+					onClose={ () => setIsAdvanceOpen( false ) }
+				/>
 			</>
 		);
 	};

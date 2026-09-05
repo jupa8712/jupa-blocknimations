@@ -1,7 +1,7 @@
 {
 	"name": "jupa-blocknimations",
 	"version": "0.1.0",
-	"description": "Animate any Gutenberg block as it enters the viewport, powered by Animate.css.",
+	"description": "Lightweight scroll animations for any block. No animation JS library — powered by Animate.css, fully customizable via CSS.",
 	"author": "Jupa",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
@@ -21,6 +21,7 @@
 		"@wordpress/hooks": "latest",
 		"@wordpress/i18n": "latest",
 		"@wordpress/icons": "latest",
+		"@wordpress/primitives": "latest",
 		"@wordpress/token-list": "latest",
 		"animate.css": "^4.1.1"
 	},

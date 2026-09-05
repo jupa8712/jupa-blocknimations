@@ -29,6 +29,7 @@ export const ControlAnimate = ( { attributes: { className }, setAttributes, onOp
 		<ToolbarDropdownMenu
 			icon={ video }
 			label={ __( 'Select animation', 'jupa-blocknimations' ) }
+			toggleProps={ { isPressed: !! currentAnimation } }
 		>
 			{ ( { onClose } ) => (
 				<>

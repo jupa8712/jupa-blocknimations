@@ -1,13 +1,21 @@
 /**
- * Default animation mode: play each block's animation once, the first time
- * it enters the viewport. Works the same whether the block starts already
- * visible on page load or is scrolled into view later, since the observer
- * checks intersection immediately on `observe()`.
+ * "On Enter" mode (the default): play each block's animation once, the
+ * first time it enters the viewport. Works the same whether the block
+ * starts already visible on page load or is scrolled into view later,
+ * since the observer checks intersection immediately on `observe()`.
  *
  * Blocks that enter together (e.g. a row of columns) are staggered
  * automatically based on their vertical order, unless the block already has
  * a manual delay set from the toolbar (an `animate__delay-*` class).
+ *
+ * "Scroll driven" blocks are skipped here when the browser supports
+ * animation-timeline, since that mode is handled entirely by CSS
+ * (see src/style.scss) — the two modes never touch the same element. If
+ * the browser doesn't support it, those blocks fall back to this same
+ * "on enter" handling instead of never animating.
  */
+const supportsScrollDriven = CSS.supports( 'animation-timeline: view()' );
+
 const observer = new IntersectionObserver(
 	( entries ) => {
 		entries
@@ -30,5 +38,11 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll( '.animate__animated' ).forEach( ( element ) => {
+	const isScrollDriven = element.classList.contains( 'animate__scrollDriven' );
+
+	if ( isScrollDriven && supportsScrollDriven ) {
+		return;
+	}
+
 	observer.observe( element );
 } );
