@@ -1,10 +1,10 @@
 === Jupa - Blocknimations ===
 Contributors: jupa8
-Tags: gutenberg, block, animation, scroll, animate.css
+Tags: gutenberg, block editor, animation, scroll animation, css animation
 Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.1.0
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Lightweight scroll animations for any block. No animation JS library — powered
 
 == Description ==
 
-Jupa Blocknimations adds animation controls directly to the blocks you already use (paragraph, image, columns, group, and more) — no new block, no extra markup. Pick from a curated shortlist or the full Animate.css catalog (97 animations, plus 4 custom "Reveal" wipes), add a delay, and it's ready.
+Jupa Blocknimations adds animation controls directly to the blocks you already use (paragraph, image, columns, group, and more) — no new block, no extra markup. Pick from a curated shortlist or the full Animate.css catalog (97 animations, plus 4 custom "Reveal" wipes).
 
 = Two animation types, no conflicts =
 
@@ -34,17 +34,50 @@ No animation JS library is bundled. The only front-end script is a small Interse
    * **Type** (lightning/mouse icon): click to switch between **On Enter** and **Scroll driven**. Delay hides automatically in Scroll driven mode, since it has no effect there.
 3. Preview the result on the front end — animations only run there, never in the editor.
 
+== Frequently Asked Questions ==
+
+= Why don't I see the animation while editing? =
+
+Animations are a front-end effect only, by design — the editor always shows the block in its normal, final state so you can keep editing without it fading in and out around you. Preview the page or view it live to see the animation play.
+
+= Does this work with any block, including third-party ones? =
+
+It's enabled by default on the most common core blocks (paragraph, heading, image, gallery, group, columns, button, cover, video, and more). It relies on the block having a normal `className` attribute, which almost all blocks support.
+
+= My block doesn't show the animation controls — what can I do? =
+
+Wrap it in a Group block and animate the group instead — it'll get exactly the same effect.
+
+= Does it slow down my site? =
+
+No extra animation library is loaded. The plugin adds Animate.css's CSS and a small IntersectionObserver script (under 1KB) only on pages where it's needed.
+
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/jupa-blocknimations` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the "Plugins" screen in WordPress.
 
+== Other Notes ==
+
+= Source code =
+
+The full, human-readable source (including build tools and config) is publicly available at:
+https://github.com/jupa8712/jupa-blocknimations
+
+The `build/` folder shipped in this plugin is compiled from the `src/` folder in that repository using `@wordpress/scripts`. To rebuild it yourself:
+
+1. `npm install`
+2. `npm run build`
+
 == Changelog ==
+
+= 1.0.0 =
+* First stable release.
 
 = 0.1.0 =
 * Initial development release.
 
 == Upgrade Notice ==
 
-= 0.1.0 =
-Initial development release.
+= 1.0.0 =
+First stable release.
