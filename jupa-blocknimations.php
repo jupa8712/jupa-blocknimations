@@ -29,6 +29,8 @@ function jupa_blocknimations_enqueue_editor_assets() {
 		$asset_file['version'],
 		true
 	);
+
+	wp_set_script_translations( 'jupa-blocknimations-editor', 'jupa-blocknimations' );
 }
 add_action( 'enqueue_block_editor_assets', 'jupa_blocknimations_enqueue_editor_assets' );
 
