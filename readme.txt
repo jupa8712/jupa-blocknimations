@@ -21,7 +21,7 @@ No animation JS library is bundled — just a small IntersectionObserver (under 
 
 **A note on restraint:** animation is a great touch, but overusing it or mixing too many effects tends to hurt more than it helps. That's why the toolbar leads with a short, curated shortlist — the full catalog is one click away via "More Animations…" when you actually need it.
 
-== How to Use ==
+= How to Use =
 
 1. Select a supported block (paragraph, heading, image, gallery, group, columns, button, cover, video, and more).
 2. Three icons appear in its toolbar:
@@ -29,6 +29,14 @@ No animation JS library is bundled — just a small IntersectionObserver (under 
    * **Delay**: a fixed 200ms–3000ms delay, or leave on "None" for automatic staggering.
    * **Type**: click to switch between **On Enter** and **Scroll driven** (hides Delay, which has no effect there).
 3. Preview on the front end — animations only run there, never in the editor.
+
+= Source Code =
+
+Full source, including build tools, is at https://github.com/jupa8712/jupa-blocknimations. The `build/` folder is compiled from `src/` via `@wordpress/scripts` — run `npm install` then `npm run build` to regenerate it.
+
+= Credits =
+
+"Scroll down" icon (https://www.magnific.com/animated-icon/scroll-down_17905763) — Designed by Magnific (https://www.magnific.com).
 
 == Frequently Asked Questions ==
 
@@ -61,16 +69,6 @@ No. No extra animation library is loaded — just Animate.css's CSS and a script
 
 1. Upload the plugin files to the `/wp-content/plugins/jupa-blocknimations` directory, or install through the WordPress plugins screen.
 2. Activate through the "Plugins" screen.
-
-== Other Notes ==
-
-= Source code =
-
-Full source, including build tools, is at https://github.com/jupa8712/jupa-blocknimations. The `build/` folder is compiled from `src/` via `@wordpress/scripts` — run `npm install` then `npm run build` to regenerate it.
-
-= Credits =
-
-"Scroll down" icon (https://www.magnific.com/animated-icon/scroll-down_17905763) — Designed by Magnific (https://www.magnific.com).
 
 == Changelog ==
 
