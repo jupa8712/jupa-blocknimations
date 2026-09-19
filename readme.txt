@@ -48,6 +48,15 @@ Wrap it in a Group block and animate the group instead.
 
 No. No extra animation library is loaded — just Animate.css's CSS and a script under 1KB.
 
+== Screenshots ==
+
+1. Curated animation shortlist, plus custom reveals and the full catalog one click away.
+2. Fixed delay options, or leave it on auto-stagger.
+3. The Advance modal: full animation catalog and animation type in one place.
+4. The mouse icon marks a block set to Scroll driven.
+5. Full Animate.css catalog, grouped by category.
+6. One click toggles between animation types.
+
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/jupa-blocknimations` directory, or install through the WordPress plugins screen.
