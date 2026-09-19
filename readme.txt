@@ -21,6 +21,8 @@ No animation JS library is bundled — just a small IntersectionObserver (under 
 
 **A note on restraint:** animation is a great touch, but overusing it or mixing too many effects tends to hurt more than it helps. That's why the toolbar leads with a short, curated shortlist — the full catalog is one click away via "More Animations…" when you actually need it.
 
+[youtube https://www.youtube.com/watch?v=e2uARdOSeXQ]
+
 = How to Use =
 
 1. Select a supported block (paragraph, heading, image, gallery, group, columns, button, cover, video, and more).
