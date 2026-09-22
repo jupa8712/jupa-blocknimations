@@ -1,10 +1,5 @@
 @import 'animate.css/animate.min.css';
 
-
-// Default mode: the block's animation starts paused, and src/view.js adds
-// .animate__inView (via IntersectionObserver) the first time it enters the
-// viewport — plays once, whether the block starts visible on load or is
-// scrolled into view later.
 .animate__animated {
 	--animate-duration: .6s;
 	--animate-distance: 3.125rem;
@@ -15,25 +10,25 @@
 	animation-play-state: running;
 }
 
-// Scroll-driven mode ("Type: Scroll driven" in the Advance modal): the
-// animation ties directly to scroll position instead of playing once.
-// src/view.js skips these entirely when this is supported, so this rule
-// and the IntersectionObserver never fight over the same element. It's
-// gated behind @supports so unsupported browsers fall through to the
-// paused default above — src/view.js then treats the block as "on enter"
-// instead, so it still plays rather than staying invisible.
+@media (prefers-reduced-motion: reduce) {
+	.animate__animated,
+	.animate__animated.animate__inView,
+	.animate__animated.animate__scrollDriven {
+		animation: none !important;
+		animation-timeline: auto !important;
+	}
+}
+
 @supports (animation-timeline: view()) {
 	.animate__animated.animate__scrollDriven {
 		animation-play-state: running;
 		animation-duration: auto;
+		animation-delay: 0s;
 		animation-timeline: view();
 		animation-range: cover 0% cover 50%;
 	}
 }
 
-// Animate.css's directional fades move the element by 100% of its own
-// size, which is huge on large blocks. Redefine the same keyframes (same
-// name, so this wins over the library's own) with a fixed distance instead.
 @keyframes fadeInUp {
 	from {
 		opacity: 0;
@@ -82,11 +77,6 @@
 	}
 }
 
-// "Reveal" animations: not part of Animate.css itself, defined here as
-// clip-path wipes. Pause/running is already handled by the generic
-// .animate__animated / .animate__inView rules above.
-// Each "from" value pushes one edge in by 100%, leaving a 0px sliver on the
-// side the reveal grows from; "to" is always the full box.
 $jbn-reveals: (
 	revealLeft: inset(0 100% 0 0),
 	revealRight: inset(0 0 0 100%),
@@ -117,8 +107,6 @@ $jbn-reveals: (
 	animation-timing-function: cubic-bezier(.7, 0, .3, 1);
 }
 
-// Manual per-block delay, set from the toolbar. When present, src/view.js
-// skips the automatic stagger delay for that block and this fires instead.
 $jbn-delays: 200, 400, 600, 800, 1000, 1500, 2000, 2500, 3000;
 
 @each $delay in $jbn-delays {

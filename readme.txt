@@ -4,7 +4,7 @@ Tags: gutenberg, block editor, animation, scroll animation, css animation
 Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,8 @@ Jupa Blocknimations adds animation controls directly to the blocks you already u
 
 * **On Enter** (default): plays once the first time a block scrolls into view, staggering blocks that enter together. Works in every browser.
 * **Scroll driven**: ties the animation to scroll position via native CSS (`animation-timeline`), falling back to "On Enter" automatically where unsupported.
+* **Respects reduced motion**: with the OS "reduce motion" setting, animated blocks render in their final state — no movement.
+* **Loads only where needed**: pages without an animated block skip the animation CSS and script entirely.
 
 No animation JS library is bundled — just a small IntersectionObserver (under 1KB) plus plain CSS. Animations are real Animate.css classes and CSS custom properties, so they're easy to override from your own CSS (e.g. `--animate-duration`, `--animate-distance`, or any property with `!important`).
 
@@ -56,7 +58,7 @@ Wrap it in a Group block and animate the group instead.
 
 = Does it slow down my site? =
 
-No. No extra animation library is loaded — just Animate.css's CSS and a script under 1KB.
+No. No extra animation library is loaded — just Animate.css's CSS and a script under 1KB — and both are only served on pages that actually contain an animated block.
 
 == Screenshots ==
 
@@ -74,6 +76,14 @@ No. No extra animation library is loaded — just Animate.css's CSS and a script
 
 == Changelog ==
 
+= 1.1.0 =
+* Advance modal: animation Type moved to the top, followed by Animation and a Delay control (shown only for "On Enter" blocks).
+* Removed the "pressed" highlight from the Type toggle.
+* Accessibility: animated blocks respect the OS "reduce motion" preference.
+* Scroll-driven blocks now ignore any leftover toolbar delay.
+* Blocks injected after load (lazy embeds, carousels, AJAX pagination) are picked up automatically via a MutationObserver.
+* Performance: the animation CSS and script load only on pages that actually use animated blocks.
+
 = 1.0.0 =
 * First stable release.
 
@@ -81,6 +91,9 @@ No. No extra animation library is loaded — just Animate.css's CSS and a script
 * Initial development release.
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+Improved accessibility, performance, and a reworked Advance modal. No breaking changes.
 
 = 1.0.0 =
 First stable release.

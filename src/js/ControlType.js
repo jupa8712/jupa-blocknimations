@@ -27,7 +27,6 @@ export const ControlType = ( { attributes: { className }, setAttributes } ) => {
 					? __( 'Click to change to On Enter', 'jupa-blocknimations' )
 					: __( 'Click to change to Scroll driven', 'jupa-blocknimations' )
 			}
-			isPressed={ isScrollDriven }
 			onClick={ onToggle }
 		/>
 	);

@@ -1,6 +1,6 @@
 {
 	"name": "jupa-blocknimations",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Lightweight scroll animations for any block. No animation JS library — powered by Animate.css, fully customizable via CSS.",
 	"author": "Jupa",
 	"license": "GPL-2.0-or-later",
